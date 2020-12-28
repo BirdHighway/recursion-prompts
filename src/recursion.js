@@ -112,6 +112,12 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  var standardizedString = string.toLowerCase().replace(' ', '');
+  if (standardizedString.length < 2) {
+    return true;
+  }
+  var endsMatch = standardizedString.charAt(0) === standardizedString.charAt(standardizedString.length - 1);
+  return endsMatch && palindrome(standardizedString.slice(1, -1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
